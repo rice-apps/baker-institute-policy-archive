@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "page_ranges": [
+        {
+          "document_id": "example",
+          "start_page": 1,
+          "end_page": 2
+        }
+      ]
+    },
+    {
+      "page_ranges": [
+        {
+          "document_id": "example",
+          "start_page": 3,
+          "end_page": 3
+        }
+      ]
+    },
+    {
+      "page_ranges": [
+        {
+          "document_id": "example",
+          "start_page": 4,
+          "end_page": 4
+        }
+      ]
+    },
+    {
+      "page_ranges": [
+        {
+          "document_id": "example",
+          "start_page": 5,
+          "end_page": 6
+        }
+      ]
+    }
+  ]
+}
