@@ -1,3 +1,5 @@
+import json
+from dataclasses import asdict
 from pathlib import Path
 
 from load_files import load_files
@@ -12,11 +14,18 @@ def main():
 
     out_dir = Path("ocr_output")
     out_dir.mkdir(exist_ok=True)
-    for r in results:
-        (out_dir / f"{Path(r.doc_id).stem}.txt").write_text(r.text, encoding="utf-8")
-        print(f"{r.doc_id}: {len(r.text)} characters")
+    pages_by_document = {}
+    for page in results:
+        pages_by_document.setdefault(page.document_id, []).append(page)
+
+    for document_id, pages in pages_by_document.items():
+        output_path = out_dir / f"{document_id}.json"
+        output_path.write_text(
+            json.dumps([asdict(page) for page in pages], ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        print(f"Wrote {len(pages)} page results to {output_path}")
 
 
 if __name__ == "__main__":
     main()
-    

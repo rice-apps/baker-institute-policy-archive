@@ -21,8 +21,7 @@ class Document:
 
 
 @dataclass
-class ParseResult:
-    doc_id: str
+class Page:
+    document_id: str
+    page_number: int
     text: str
-    # confidence: float
-    # pages: list[PageResult]
