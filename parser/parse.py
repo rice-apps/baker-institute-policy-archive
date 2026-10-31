@@ -1,4 +1,4 @@
-from models import Document, DocumentType, ParseResult
+from .models import Document, DocumentType, ParseResult
 
 
 class Parser:

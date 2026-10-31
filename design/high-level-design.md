@@ -316,6 +316,10 @@ Parser.parse(pdf, options) -> ParseResult
 
 We plug in, then evaluate: the same test documents run through each adapter and the results are compared (Section 18).
 
+### Parser quality checks
+
+The first checking interface is `parser/evaluation.py`. It matches parser output to human-verified references by document ID and reports character and word error rates, a word-token intersection-over-union score, page-level scores and page coverage, missing or unexpected documents, and recall of reviewer-selected critical terms such as names, dates and policy phrases. Reference context is available to an optional semantic scorer, allowing a project-approved model or reviewer workflow to judge meaning without treating raw text similarity as a proxy for understanding. Keep these measures separate in the report; set acceptance thresholds from a representative, reviewed sample rather than using a universal score.
+
 ### How parser output is used
 
 - Each parser's raw output is stored unchanged as a derivative.

@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from load_files import load_files
-from tesseract_parser import TesseractParser
+from .load_files import load_files
+from .tesseract_parser import TesseractParser
 
 
 def main():
@@ -19,4 +19,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    

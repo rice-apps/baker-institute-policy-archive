@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum
 
 
@@ -24,5 +24,5 @@ class Document:
 class ParseResult:
     doc_id: str
     text: str
+    pages: list[str] = field(default_factory=list)
     # confidence: float
-    # pages: list[PageResult]

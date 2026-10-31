@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from models import Document, DocumentType
+from .models import Document, DocumentType
 
 EXT_TO_TYPE = {
     ".pdf": DocumentType.PDF,
