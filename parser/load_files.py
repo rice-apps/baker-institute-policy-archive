@@ -1,8 +1,12 @@
 from pathlib import Path
 
-from parse import Document
+from models import Document, DocumentType
 
-EXT_TO_TYPE = {".pdf": "PDF", ".tif": "TIF", ".tiff": "TIF"}
+EXT_TO_TYPE = {
+    ".pdf": DocumentType.PDF,
+    ".tif": DocumentType.TIF,
+    ".tiff": DocumentType.TIF,
+}
 
 
 def load_files(directory: str = "test_files") -> list[Document]:

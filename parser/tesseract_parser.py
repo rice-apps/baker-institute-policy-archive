@@ -4,7 +4,8 @@ import fitz  # PyMuPDF
 import pytesseract
 from PIL import Image, ImageSequence
 
-from parse import Document, ParseResult, Parser
+from models import Document, DocumentType, ParseResult
+from parse import Parser
 
 
 class TesseractParser(Parser):
@@ -15,10 +16,10 @@ class TesseractParser(Parser):
             pytesseract.pytesseract.tesseract_cmd = tesseract_cmd
 
     def _parse_one(self, doc: Document) -> ParseResult:
-        doc_type = doc.get_type().upper()
-        if doc_type == "PDF":
+        doc_type = doc.get_type()
+        if doc_type is DocumentType.PDF:
             images = self._pdf_to_images(doc.get_content())
-        elif doc_type == "TIF":
+        elif doc_type is DocumentType.TIF:
             images = self._tif_to_images(doc.get_content())
         else:
             raise ValueError(f"Unsupported type: {doc.get_type()}")
